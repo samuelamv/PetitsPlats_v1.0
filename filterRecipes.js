@@ -7,6 +7,23 @@ const galerie = document.querySelector('.galerie');
 
 function displayRecipes(xRecipes){
     galerie.replaceChildren();
+
+    const oldMessage = document.getElementById("no-result-message");
+    if (oldMessage) oldMessage.remove();
+
+    const keyword = document.querySelector(".search-bar").value.trim();
+
+    if (xRecipes.length === 0) {
+        const message = document.createElement("p");
+        message.id = "no-result-message";
+        message.textContent = `Aucune recette ne contient "${keyword}"`;
+        message.style.fontFamily =  "Anton";
+        message.style.fontWeight = "400";
+        message.style.marginTop = "1rem";
+        message.style.color = "#00000";
+
+        galerie.appendChild(message);
+    } else {
     xRecipes.forEach(recipes => {
         const clone = template.content.cloneNode(true);
         const box = clone.querySelector('.box');
@@ -23,27 +40,28 @@ function displayRecipes(xRecipes){
         p.textContent  = recipes.description;
         time.textContent = recipes.time + "min";
 
-        recipes.ingredients.forEach(ing => {
-            const ingredientName = ing.ingredient;
-            const ingredient = document.createElement('p');
-            ingredient.classList.add('ingrédients');
-            ingredient.textContent = ingredientName;
+            recipes.ingredients.forEach(ing => {
+                const ingredientName = ing.ingredient;
+                const ingredient = document.createElement('p');
+                ingredient.classList.add('ingrédients');
+                ingredient.textContent = ingredientName;
 
-            const divIngQty = document.createElement('div');
-            divIngQty.classList.add('ing-qty');
+                const divIngQty = document.createElement('div');
+                divIngQty.classList.add('ing-qty');
 
-            const quantity = ing.quantity;
-            const unit = ing.unit ? ` ${ing.unit}` : '';
-            const quantitySpan = document.createElement('span');
-            quantitySpan.classList.add('qte');
-            quantitySpan.textContent = `${quantity || ''}${unit}`;
+                const quantity = ing.quantity;
+                const unit = ing.unit ? ` ${ing.unit}` : '';
+                const quantitySpan = document.createElement('span');
+                quantitySpan.classList.add('qte');
+                quantitySpan.textContent = `${quantity || ''}${unit}`;
 
-            divIngQty.appendChild(ingredient);
-            divIngQty.appendChild(quantitySpan);
-            div.appendChild(divIngQty);
+                divIngQty.appendChild(ingredient);
+                divIngQty.appendChild(quantitySpan);
+                div.appendChild(divIngQty);
+            });
+            galerie.appendChild(clone);
         });
-        galerie.appendChild(clone);
-    });
+    }   
     document.getElementById("recipe-count").textContent = `${xRecipes.length} recette${xRecipes.length > 1 ? 's' : ''}`;
 
 }
@@ -204,6 +222,12 @@ document.querySelector(".formSearch").addEventListener('submit', function (event
 
     document.querySelector(`.remove${type}-button`).addEventListener("click", function () {
         document.querySelector(`.search-dropdown${type}`).value = "";
+        ["Ing", "App", "Ust"].forEach(type => {
+            document.querySelector(`.remove${type}-button`).addEventListener("click", function () {
+                document.querySelector(`.search-dropdown${type}`).value = "";
+                updateDropdowns(filterRecipes());
+            });
+        });        
     });
 });
 
