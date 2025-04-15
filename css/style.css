@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+body{
+    margin: 0;
+    background-color: #EDEDED;
+}
+
+
+main{
+    margin: 0 102px;
+}
+/*header*/
+.search-bloc{
+    height: 667px;
+    background-image: url(../medias/background.png);
+    background-repeat: no-repeat;
+    background-size: cover; /* Ou contain selon le besoin */
+    background-position: center;
+    width: 100%;
+}
+
+.logo{
+    position: absolute;
+    left: 69px;
+    top: 51px
+}
+
+h1{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    width: 880px;
+    height: 132px;
+    color: #FFD15B;
+    font-family: Anton;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 66.24px;
+    text-align: center;
+    position: absolute;
+    left: 275px;
+    top: 245px
+}
+
+.search-bar{
+    width: 954px;
+    height: 72px;
+    border: none;
+    border-radius: 11px;
+    position: absolute;
+    left: 243px;
+    top: 406px;
+    padding-left: 32px;
+    box-sizing: border-box;
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21.86px;
+    color: #7A7A7A;
+}
+
+.search-bar::placeholder{
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21.86px;
+    position: absolute;
+    left: 35px;
+    color: #7A7A7A;
+}
+
+.search-button{
+    width: 51px;
+    height: 52px;
+    border-radius: 10px;
+    position: absolute;
+    top: 416px;
+    left: 1136PX;
+    background: #1B1B1B;
+}
+
+.search-button i{
+    color: #FFFFFF;
+    width: 30px;
+}
+
+.remove-button{
+    width: 13px;
+    height: 13px;
+    border-radius: 10px;
+    position: absolute;
+    top: 436px;
+    left: 1104px;
+    background: none;
+    border: none;
+    display: none;
+}
+
+.remove-button i{
+    color: #7A7A7A;
+    width: 13px;
+}
+/*galerie*/
+.galerie{
+    margin-top: 55px;
+    display: flex;
+    flex-direction: row;
+    row-gap: 66px;
+    column-gap: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box{
+    position: relative;
+    width: 380px;
+    height: 731px;
+    border-radius: 21px;
+    background-color: #FFFFFF;
+}
+
+.image{
+    width: 380px;
+    height: 253px;
+    border-radius: 21px 21px 0 0;
+    object-fit: cover;
+}
+
+.container{
+    margin: 25px;
+}
+.title{
+    font-family: Anton;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27.1px;
+    letter-spacing: 0;
+}
+
+.description {
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.12px;
+    text-align: left;
+    display: -webkit-box; /* Utilise un conteneur flexible */
+    -webkit-box-orient: vertical; /* Définit l'axe principal vertical */
+    overflow: hidden;
+    -webkit-line-clamp: 4; /* Limite à 4 lignes */
+}
+
+.ingrédient-gallerie{
+    margin-top: 15px;
+    width: auto;
+    height: 190px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 21px;
+    align-content: start;
+    justify-content: space-between;
+}
+
+.ingrédients{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: Manrope;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19.12px;
+    letter-spacing: 0;
+    color: #1B1B1B;
+}
+
+.ing-span, .ing-recette{
+    font-family: Manrope;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16.39px;
+    letter-spacing: 2px;
+    color: #7A7A7A;
+}
+
+.ing-qty{
+    width: 45%;
+    height: 39px;
+    display: flex;
+    flex-direction: column;
+}
+
+.qte{
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.12px;
+    letter-spacing: 0;
+    color: #7A7A7A;
+}
+
+.container-time{
+    position: absolute;
+    width: 63px;
+    height: 26px;
+    top: 21px;
+    right: 22px;
+    border-radius: 14px;
+    background-color: #FFD15B;
+}
+
+.timer-recipe{
+    text-align: center;
+    margin: 5px 15px;
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16.39px;
+    letter-spacing: 0;
+    color: #1B1B1B;
+}
+
+/*barre de filtres et dropdowns*/
+.tag-bloc{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 21px;
+}
+
+.dropdown-ing{
+    position: relative;
+    width: 210px;
+    border-radius: 11px;
+    background-color: #FFFFFF;
+}
+
+.dropdown-app{
+    position: relative;
+    width: 210px;
+    border-radius: 11px;
+    background-color: #FFFFFF;
+    
+}
+
+.dropdown-ust{
+    position: relative;
+    width: 210px;
+    border-radius: 11px;
+    background-color: #FFFFFF;
+   
+}
+
+.recipe-count {
+    margin-left: auto;
+    align-self: center;
+    font-family: Anton;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+.box-ing, .box-app, .box-ust{
+    gap: 63px;
+    margin: 0 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.box-ing p, .box-app p, .box-ust p {
+    font-family: Manrope;
+    font-weight: 500;
+    font-size: 16px;
+    color: #1B1B1B;
+}
+
+.search-dropdownIng, .search-dropdownApp, .search-dropdownUst{
+    width: 163px;
+    height: 36px;
+    margin: 0 15px 15px 15px;
+    top: 53px;
+    left: 16px;
+    padding-left: 8px;
+    border-radius: 2px;
+    border-width: 1px;
+    border: 1px solid #C6C6C6;
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.12px;
+    color: #7A7A7A;
+}
+
+.search-dropdownIng::placeholder, .search-dropdownApp::placeholder, .search-dropdownUst::placeholder{
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.12px;
+    position: absolute;
+    left: 8px;
+    color: #7A7A7A;
+}
+
+.removeIng-button, .removeApp-button, .removeUst-button{
+    width: 6px;
+    height: 6px;
+    background: none;
+    border: none;
+    position: absolute;
+    left: 245px;
+    top: 753px;
+}
+
+.removeIng-button i, .removeApp-button i, .removeUst-button i{
+    color: #7A7A7A;
+    width: 6px;
+}
+
+.dropdown-listIng, .dropdown-listApp, .dropdown-listUst {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.searchIng-button, .searchApp-button, .searchUst-button{
+    width: 14px;
+    height: 14px;
+    background: none;
+    border: none;
+    position: absolute;
+    left: 260px;
+    top: 753px;
+}
+
+.searchIng-button i, .searchApp-button i, .searchUst-button i{
+    color: #7A7A7A;
+    width: 14px;
+}
+
+.dropdown-listIng li, .dropdown-listApp li, .dropdown-listUst li {
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.12px;
+    height: 37px;
+    align-content: center;
+}
+
+.tag-ing, .tag-app, .tag-ust{
+    position: absolute;
+    inset: 45px 0 auto 0;
+    z-index: 100;
+    display: none;
+    height: 0px;
+    overflow-y: scroll;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+}
+
+.ingredient-container, .appliance-container, .ustensil-container{
+    padding-left: 15px;
+    padding-bottom: 9px;
+    padding-top: 9px;
+}
+
+.dropdown-listIng li label, .dropdown-listApp li label, .dropdown-listUst li label{
+    margin: 0 15px;
+}
+
+.selectTag{
+    background-color: #FFD15B;
+    border-radius: 10px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    padding: 17px 18px;
+}
+
+#selectedTags{
+    display: flex;
+    gap: 10px;
+    position: 0 auto;
+}
+
+.remove-tag{
+    background-color: transparent;
+    border:none
+}
+
+
+.ingredient-container:hover,
+.appliance-container:hover,
+.ustensil-container:hover {
+    background-color: #FFD15B;
+    color: #000;
+}
+
+.selected {
+    background-color: #FFD15B !important;
+    color: #000 !important;
+}

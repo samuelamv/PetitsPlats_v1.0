@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/9c9e7e26cf.js" crossorigin="anonymous"></script> 
+        <script type="module" src="./filterRecipes.js"></script> 
+        <title>Home</title>
+    </head>
+    <body>
+        <header>
+            <div class="search-bloc">
+                <img class="logo" src="./medias/Logo.png" alt="Logo les petiis plats">
+                <h1>CHERCHEZ PARMI PLUS DE 1500 RECETTES<br>DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES</h1>
+                <form action="submit" class="formSearch">
+                    <input class="search-bar" type="text" placeholder="Rechercher une recette, un ingrédient, ...">
+                    <button type="button" class="remove-button"><i class="fa-solid fa-xmark"></i></button>
+                    <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+        </header>
+        <main>
+            <div class="tag-bloc">
+                <div class="dropdown-ing">
+                    <div class="box-ing">
+                        <p>Ingrédients</p>
+                        <i class="fa-solid fa-chevron-down" id="ingredientsDropdown"></i>
+                    </div>
+                    <div class="tag-ing">
+                        <form action="submit" class="form-ing">
+                            <input type="text" class="search-dropdownIng" placeholder="Rechercher..." />
+                            <button type="button" class="removeIng-button"><i class="fa-solid fa-xmark"></i></button>
+                            <button type="submit" class="searchIng-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                        <div class="dropdown-listIng"></div> 
+                    </div> 
+                </div>
+
+                <div class="dropdown-app">
+                    <div class="box-app">
+                        <p>Appareils</p>
+                        <i class="fa-solid fa-chevron-down" id="applianceDropdown"></i>
+                    </div>
+                    <div class="tag-app">
+                        <form action="submit" class="form-app">
+                            <input type="text" class="search-dropdownApp" placeholder="Rechercher..." />
+                            <button type="button" class="removeApp-button"><i class="fa-solid fa-xmark"></i></button>
+                            <button type="submit" class="searchApp-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                        <div class="dropdown-listApp"></div>
+                    </div>
+                </div>
+
+                <div class="dropdown-ust">
+                    <div class="box-ust">
+                        <p>Ustensiles</p>
+                        <i class="fa-solid fa-chevron-down" id="ustensilDropdown"></i>
+                    </div>
+                    <div class="tag-ust">
+                        <form action="submit" class="form-ust">
+                            <input type="text" class="search-dropdownUst" placeholder="Rechercher..." />
+                            <button type="button" class="removeUst-button"><i class="fa-solid fa-xmark"></i></button>
+                            <button type="submit" class="searchUst-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                        <div class="dropdown-listUst"></div>
+                    </div>
+                </div>
+                <span id="recipe-count" class="recipe-count">0 recette</span>
+            </div>
+            <div id="selectedTags"></div>
+        <div class="galerie">
+            <template class="card">
+                    <div class="box">
+                        <img class="image" src="" alt="">
+                        <div class="container-time">
+                            <p class="timer-recipe"></p>
+                        </div>
+                        <div class="container">
+                            <h2 class="title"></h2>
+                            <span class="ing-recette">RECETTE</span>
+                            <p class="description"></p>
+                            <span class="ing-span">INGREDIENTS</span>
+                            <div class="ingrédient-gallerie">
+                            </div>
+                        </div>
+                    </div>
+            </template> 
+        </div>
+        </main>
+    </body>
+</html>
