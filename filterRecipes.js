@@ -143,20 +143,123 @@ function openList(className, idName) {
         filter.style.height = (filter.style.display === 'block') ? '300px' : '0';
     });
 }
-
 function filterRecipes() {
     const selectedTags = Array.from(document.querySelectorAll('.selectTag'));
     const word = document.querySelector(".search-bar").value.trim().toLowerCase();
     let filtered = recipes;
 
+    const selectedIngredients = [];
+    const selectedAppliances = [];
+    const selectedUstensils = [];
+
+    for (const tag of selectedTags) {
+        if (tag.dataset.type === "ingredient") {
+            selectedIngredients.push(tag.dataset.name);
+        } else if (tag.dataset.type === "appliance") {
+            selectedAppliances.push(tag.dataset.name);
+        } else if (tag.dataset.type === "ustensil") {
+            selectedUstensils.push(tag.dataset.name);
+        }
+    }
+
+    if (selectedIngredients.length) {
+        const temp = [];
+        for (const recipe of filtered) {
+            let allMatch = true;
+            for (const tag of selectedIngredients) {
+                let found = false;
+                for (const ing of recipe.ingredients) {
+                    if (ing.ingredient.toLowerCase().includes(tag)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    allMatch = false;
+                    break;
+                }
+            }
+            if (allMatch) {
+                temp.push(recipe);
+            }
+        }
+        filtered = temp;
+    }
+
+    if (selectedAppliances.length) {
+        const temp = [];
+        for (const recipe of filtered) {
+            let allMatch = true;
+            for (const tag of selectedAppliances) {
+                if (!recipe.appliance.toLowerCase().includes(tag)) {
+                    allMatch = false;
+                    break;
+                }
+            }
+            if (allMatch) {
+                temp.push(recipe);
+            }
+        }
+        filtered = temp;
+    }
+
+    if (selectedUstensils.length) {
+        const temp = [];
+        for (const recipe of filtered) {
+            let allMatch = true;
+            for (const tag of selectedUstensils) {
+                let found = false;
+                for (const ust of recipe.ustensils) {
+                    if (ust.toLowerCase().includes(tag)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    allMatch = false;
+                    break;
+                }
+            }
+            if (allMatch) {
+                temp.push(recipe);
+            }
+        }
+        filtered = temp;
+    }
+
+    if (word.length > 2) {
+        const temp = [];
+        for (const recipe of filtered) {
+            let match = false;
+
+            for (const ing of recipe.ingredients) {
+                if (ing.ingredient.toLowerCase().includes(word)) {
+                    match = true;
+                    break;
+                }
+            }
+
+            if (!match && !recipe.name.toLowerCase().includes(word) && !recipe.description.toLowerCase().includes(word)) {
+                continue;
+            }
+
+            temp.push(recipe);
+        }
+        filtered = temp;
+    }
+
+    return filtered;
+}
+
+/*function filterRecipes() {
+    const selectedTags = Array.from(document.querySelectorAll('.selectTag'));
+    const word = document.querySelector(".search-bar").value.trim().toLowerCase();
+    let filtered = recipes;
+
     const selectedIngredients = selectedTags.filter(tag => tag.dataset.type === "ingredient").map(tag => tag.dataset.name);
-    /*const selectedIngredients = []
-    for (const t of selectedTags){
-    if(t.dataset.type === "ingredient")
-        selectedIngredients.push(t.dataset.name)
-    }*/
     const selectedAppliances = selectedTags.filter(tag => tag.dataset.type === "appliance").map(tag => tag.dataset.name);
     const selectedUstensils = selectedTags.filter(tag => tag.dataset.type === "ustensil").map(tag => tag.dataset.name);
+   
 
     if (selectedIngredients.length)
         filtered = filtered.filter(recipe => selectedIngredients.every(tag => recipe.ingredients.some(ing => ing.ingredient.toLowerCase().includes(tag))));
@@ -175,7 +278,7 @@ function filterRecipes() {
         );
 
     return filtered;
-}
+}*/
 
 function updateDropdowns(recipes) {
     displayUniqueIngredients(recipes);

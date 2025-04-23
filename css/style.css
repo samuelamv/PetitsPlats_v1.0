@@ -75,7 +75,7 @@ h1{
     border-radius: 10px;
     position: absolute;
     top: 416px;
-    right: 26%;
+    right: 20%;
     background: #1B1B1B;
 }
 
@@ -90,7 +90,7 @@ h1{
     border-radius: 10px;
     position: absolute;
     top: 436px;
-    right: 30%;
+    right: 25%;
     background: none;
     border: none;
     display: none;
