@@ -143,6 +143,7 @@ function openList(className, idName) {
         filter.style.height = (filter.style.display === 'block') ? '300px' : '0';
     });
 }
+
 function filterRecipes() {
     const selectedTags = Array.from(document.querySelectorAll('.selectTag'));
     const word = document.querySelector(".search-bar").value.trim().toLowerCase();
@@ -251,35 +252,6 @@ function filterRecipes() {
     return filtered;
 }
 
-/*function filterRecipes() {
-    const selectedTags = Array.from(document.querySelectorAll('.selectTag'));
-    const word = document.querySelector(".search-bar").value.trim().toLowerCase();
-    let filtered = recipes;
-
-    const selectedIngredients = selectedTags.filter(tag => tag.dataset.type === "ingredient").map(tag => tag.dataset.name);
-    const selectedAppliances = selectedTags.filter(tag => tag.dataset.type === "appliance").map(tag => tag.dataset.name);
-    const selectedUstensils = selectedTags.filter(tag => tag.dataset.type === "ustensil").map(tag => tag.dataset.name);
-   
-
-    if (selectedIngredients.length)
-        filtered = filtered.filter(recipe => selectedIngredients.every(tag => recipe.ingredients.some(ing => ing.ingredient.toLowerCase().includes(tag))));
-
-    if (selectedAppliances.length)
-        filtered = filtered.filter(recipe => selectedAppliances.every(tag => recipe.appliance.toLowerCase().includes(tag)));
-
-    if (selectedUstensils.length)
-        filtered = filtered.filter(recipe => selectedUstensils.every(tag => recipe.ustensils.some(ust => ust.toLowerCase().includes(tag))));
-
-    if (word.length > 2)
-        filtered = filtered.filter(recipe =>
-            recipe.ingredients.some(ing => ing.ingredient.toLowerCase().includes(word)) ||
-            recipe.name.toLowerCase().includes(word) ||
-            recipe.description.toLowerCase().includes(word)
-        );
-
-    return filtered;
-}*/
-
 function updateDropdowns(recipes) {
     displayUniqueIngredients(recipes);
     displayUniqueAppliances(recipes);
@@ -306,7 +278,7 @@ document.querySelector(".formSearch").addEventListener('submit', function (event
     updateDropdowns(newRecipes);
 });
 
-// Search dropdowns filtering logic (ingredients/appareils/ustensiles)
+
 ["Ing", "App", "Ust"].forEach(type => {
     document.querySelector(`.search${type}-button`).addEventListener("click", function (event) {
         event.preventDefault();
